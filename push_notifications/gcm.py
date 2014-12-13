@@ -72,7 +72,7 @@ def _gcm_send_plain(registration_id, data, collapse_key=None, delay_while_idle=F
 	data = urlencode(sorted(values.items())).encode("utf-8")  # sorted items for tests
 
 	result = _gcm_send(data, "application/x-www-form-urlencoded;charset=UTF-8")
-	if result.startswith("Error="):
+	if result.startswith(b"Error="):
 		raise GCMError(result)
 	return result
 

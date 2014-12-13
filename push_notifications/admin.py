@@ -9,7 +9,7 @@ def _user__username():
 
 
 class DeviceAdmin(admin.ModelAdmin):
-	list_display = ("__unicode__", "device_id", "user", "active", "date_created")
+	list_display = ("__str__", "device_id", "user", "active", "date_created")
 	search_fields = ("name", "device_id", _user__username())
 	list_filter = ("active", )
 	actions = ("send_message", "send_bulk_message", "prune_devices", "enable", "disable")
